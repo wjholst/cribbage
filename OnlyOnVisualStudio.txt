@@ -1,0 +1,5 @@
+DO NOT upload this file to PythonAnywhere!!!!!!!
+
+Existance of this file is a test performed within cribbage_utilities.py.
+
+If this file exists, the path to Bill's pickle files is set to the local path on someone's desktop computer.  If it doesn't exist, the code sets the path to where the files are stored on PythonAnywhere.

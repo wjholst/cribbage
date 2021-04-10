@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}
+    Play Cribbage Hand
+{% endblock %}
+{% block content %}
+    <p>Formation of Crib.</p>
+    <form action="/play" method="get,post">
+        <input type="submit" value="Play hand">
+    </form>    
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}
+    Choose Dealer
+{% endblock %}
+{% block content %}
+    <table border="0">
+        <tr>
+            <td style="text-align:center">Computer card<br /><img width="100" src="{{computer_cardFileName}}"</td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><hr /><br /> {{who_deals}}<br /><br /><hr></td>
+        </tr>
+        <tr>
+            <td style="text-align:center">Your card<br /><img width="100" src="{{player_cardFileName}}"</td>
+        </tr>
+    </table>
+    <form action="/select_cards" method="POST">
+        <input type="submit" value="Deal the cards">
+    </form>
+{% endblock %}

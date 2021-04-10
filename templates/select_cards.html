@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block title %}
+    Select cards for crib
+{% endblock %}
+{% block content %}
+
+
+
+<form action="/crib" method = "POST">
+    <table border="0">
+        <tbody>
+            <tr>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                
+            </tr>
+            <tr>
+                <td style="text-align:left"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:left"><br /><img width="100" src="{{transparent}}"</td>
+                <td style="text-align:center"><br/><img width="100" src="{{transparent}}"</td>
+                <br />  
+            </td>
+            </tr>
+            <tr>
+                <td style="text-align:center">1<br/><img width="100" src="{{pcn0}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc0}}></td>
+                <td style="text-align:center">2<br/><img width="100" src="{{pcn1}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc1}}></td>
+                <td style="text-align:center">3<br/><img width="100" src="{{pcn2}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc2}}></td>
+                <td style="text-align:center">4<br/><img width="100" src="{{pcn3}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc3}}></td>
+                <td style="text-align:center">5<br/><img width="100" src="{{pcn4}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc4}}></td>
+                <td style="text-align:center">6<br/><img width="100" src="{{pcn5}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc5}}></td>
+                <td style="text-align:center">1
+                <a href="/"><br/>
+                    <img alt="xx/crib" src={{pcn5}}
+                    width=100"></td>
+                 </a>
+                <br>
+            </tr>
+             
+        </tbody>
+    </table>
+    
+    <input type="submit" onclick="return countCards()" value="Send cards to crib", id="cribsubmit">
+
+</form>
+
+
+
+<script type="text/javascript">
+    function countCards() {
+        if (document.querySelectorAll('input[type="checkbox"]:checked').length != 2) {
+            alert("select only 2 cards");
+            return false;
+        }
+        else {
+            cribsubmit.submit();
+        }
+    }
+    </script>
+
+</script>>
+{% endblock %}
