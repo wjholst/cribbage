@@ -1,10 +1,85 @@
 {% extends "layout.html" %}
 {% block title %}
-    Play Cribbage Hand
+    Select cards for crib
 {% endblock %}
 {% block content %}
-    <p>Formation of Crib.</p>
-    <form action="/play" method="get,post">
-        <input type="submit" value="Play hand">
-    </form>    
+
+
+
+<form action="/crib" method = "POST">
+    <table border="0">
+        <tbody>
+            <tr>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                
+            </tr>
+            <tr>
+                <td style="text-align:left"><br /><img width="100" src="{{blank}}"</td>
+                <td style="text-align:left"><br /><img width="100" src="{{transparent}}"</td>
+                <td style="text-align:center"><br/><img width="100" src="{{transparent}}"</td>
+                <br />  
+            </td>
+            </tr>
+            <tr>
+                <td style="text-align:center">1<br/><img onclick="SelectADropdownItem('card-dropdown',{{pc1}}) "width="100" src="static/CardDeck/SPADE-4.svg" name="cardNumber" value=104></td>
+                <td style="text-align:center">2<br/><img onclick="SelectADropdownItem('card-dropdown',{{pc2}}) "width="100" src="static/CardDeck/SPADE-5.svg" name="cardNumber" value=105>></td>
+                <td style="text-align:center">3<br/><img width="100" src="{{pcn2}}"></td>
+                <br /> <input type="checkbox" name="cardNumber" value={{pc2}}></td>
+                <td style="text-align:center">4<br/><img width="100" src="{{pcn3}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc3}}></td>
+                <td style="text-align:center">5<br/><img width="100" src="{{pcn4}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc4}}></td>
+                <td style="text-align:center">6<br/><img width="100" src="{{pcn5}}">
+                <br /> <input type="checkbox" name="cardNumber" value={{pc5}}></td>
+                
+                
+                    
+                <br>
+            </tr>
+             
+        </tbody>
+    </table>
+    <form onsubmit="alert('Example only, not live'); return false;">
+        <select id="card-dropdown">
+        <option>Select here or click a card above.</option>
+        <option value="{{pc1}}">{{pc1}}</option>
+        <option value="{{pc2}}">{{pc2}}</option>
+
+        </select>
+        </form>
+
+    
+
+</form>
+
+<script type="text/javascript">
+function SelectADropdownItem(id,val)
+{
+   var d = document.getElementById(id);
+   for( var i=0; i<d.length; i++ )
+   {
+      if( d[i].value == val ) { d[i].selected = true; }
+      else { d[i].selected = false; }
+   }
+}   
+</script>
+
+<script type="text/javascript">
+    function countCards() {
+        if (document.querySelectorAll('input[type="checkbox"]:checked').length != 2) {
+            alert("select only 2 cards");
+            return false;
+        }
+        else {
+            cribsubmit.submit();
+        }
+    }
+    </script>
+
+</script>>
 {% endblock %}

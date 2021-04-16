@@ -8,13 +8,14 @@
             <td style="text-align:center">Computer card<br /><img width="100" src="{{computer_cardFileName}}"</td>
         </tr>
         <tr>
-            <td style="text-align:center"><hr /><br /> {{who_deals}}<br /><br /><hr></td>
+            <!-- <td style="text-align:center"><hr /><br />The dealer is {{who_deals}}<br /><br /><hr></td> -->
+            <td style="text-align:center"><hr /><br /><b>{{who_deals}}</b><br /><br /><hr></td>
         </tr>
         <tr>
             <td style="text-align:center">Your card<br /><img width="100" src="{{player_cardFileName}}"</td>
         </tr>
     </table>
-    <form action="/select_cards" method="POST">
+    <form action="/select_cards" method="get">
         <input type="submit" value="Deal the cards">
-    </form>
+    </form>    
 {% endblock %}

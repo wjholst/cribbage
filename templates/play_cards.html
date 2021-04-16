@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+{% block title %}
+    Select cards for crib
+{% endblock %}
+{% block content %}
+
+<!-- One big table with three tables inside it.  Table on left is Crib, a narrow center table is a spacer, and table on right is Play tableau. -->
+
+<table border="0">
+    <tr>
+        <td>
+            <table border="0">
+                <tr>
+                    <td colspan="4"  style="text-align:center">
+                        <label for="c_score"><b>Computer Score:</b> </label>
+                        <input type="text" size="2" id="c_score" value="{{ request.cookies.get('computer_score') }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <img width="75" value="{{starter}}" src="{{computer_starter}}">
+                    </td>
+                </tr>    
+                <tr>
+                    <td style="text-align:center"><img width="75" src="{{ccrib}}"</td>
+                    <td style="text-align:center"><img width="75" src="{{ccrib}}"</td>
+                    <td style="text-align:center"><img width="75" src="{{ccrib}}"</td>
+                    <td style="text-align:center"><img width="75" src="{{ccrib}}"</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center"><img width="75" src="{{pcrib}}"</td>
+                    <td style="text-align:center"><img width="75" src="{{pcrib}}"</td>
+                    <td style="text-align:center"><img width="75" src="{{pcrib}}"</td>
+                    <td style="text-align:center"><img width="75" src="{{pcrib}}"</td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <img width="75" value = "{{starter}}" src="{{player_starter}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  style="text-align:center">
+                        <label for="c_score"><b>Player Score:</b> </label>
+                        <input type="text" size="2" id="c_score" value="{{ request.cookies.get('player_score') }}"><br>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table border="0">
+                <tr>
+                    <td>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <form action="/play_cards" method = "POST">
+                <table border="0">
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                            <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                            <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                            <td style="text-align:center"><br /><img width="100" src="{{blank}}"</td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="100"></td>
+                            <td width="100" height="100"></td>
+                            <td width="100" height="100"></td>
+                            <td width="100" height="100"></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="100"></td>
+                            <td width="100" height="100"></td>
+                            <td width="100" height="100"></td>
+                            <td width="100" height="100"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center"><img width="100" src="{{pcn0}}">
+                            <br /> <input type="checkbox" name="cardNumber" value={{pc0}}></td>
+                            <td style="text-align:center"><img width="100" src="{{pcn1}}">
+                            <br /> <input type="checkbox" name="cardNumber" value={{pc1}}></td>
+                            <td style="text-align:center"><img width="100" src="{{pcn2}}">
+                            <br /> <input type="checkbox" name="cardNumber" value={{pc2}}></td>
+                            <td style="text-align:center"><img width="100" src="{{pcn3}}">
+                            <br /> <input type="checkbox" name="cardNumber" value={{pc3}}></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="center">
+                                <input type="submit" value="{{start_msg}}", id="cardSubmit">
+                                <input type="submit" value="Go", id="cardSubmit">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><hr></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="center">
+                                <input type="text" size="50" value="{{ request.cookies.get('narration_1') }}"><br />
+                                <input type="text" size="50" value="{{ request.cookies.get('narration_2') }}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>  
+            </form>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    function countCards() {
+        
+    }
+</script>
+
+{% endblock %}
+
+
